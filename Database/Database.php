@@ -45,8 +45,27 @@ class Database extends Connection
 		}
 	}
 
-	public function select($table,Array $params)
+    /**
+     * @param $table
+     * @param array $params
+     * @param array $conditions
+     */
+    public function select($table, Array $params=[], Array $conditions =[])
 	{
+	    $params = ! empty($params) ? implode(",",$params) : "*";
+
+	    $filters = "";
+        foreach ($conditions as $key => $value)
+        {
+           $filters .= "$key = $value";
+        }
+	    $sql = "select $params from $table";
+
+        if (! empty($filters))
+        {
+            $sql .= $filters ;
+        }
+        $sql
 
 	}
 

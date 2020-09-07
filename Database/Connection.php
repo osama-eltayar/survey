@@ -11,7 +11,7 @@ class Connection
 
 	protected function __construct()
     {
-        self::$conn = new \PDO(sprintf('mysql:host=?;dbname=?',DB_HOST,DB_DATABASE),DB_USERNAME ,DB_PASSWORD  );
+        self::$conn = new \PDO(sprintf('mysql:host=%s;dbname=%s',DB_HOST,DB_DATABASE),DB_USERNAME ,DB_PASSWORD  );
 //        $this->checkConnection();
     }
 //    private function checkConnection()
