@@ -2,7 +2,7 @@
 @font-face {
     font-family: 'BKANT';
     src: url('../fonts/BKANT.eot');
-    src: local('Ã¢ËœÂº'), url('../fonts/BKANT.woff') format('woff'), url('../fonts/BKANT.ttf') format('truetype'), url('../fonts/BKANT.svg') format('svg');
+    src: local('ÃƒÂ¢Ã‹Å“Ã‚Âº'), url('../fonts/BKANT.woff') format('woff'), url('../fonts/BKANT.ttf') format('truetype'), url('../fonts/BKANT.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -10,7 +10,7 @@
 @font-face {
     font-family: 'ANTQUAB';
     src: url('../fonts/ANTQUAB.eot');
-    src: local('Ã¢ËœÂº'), url('../fonts/ANTQUAB.woff') format('woff'), url('../fonts/ANTQUAB.ttf') format('truetype'), url('../fonts/ANTQUAB.svg') format('svg');
+    src: local('ÃƒÂ¢Ã‹Å“Ã‚Âº'), url('../fonts/ANTQUAB.woff') format('woff'), url('../fonts/ANTQUAB.ttf') format('truetype'), url('../fonts/ANTQUAB.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -329,6 +329,9 @@ main {
     width: 120px;
     text-align: center;
 }
+.section_2 .right-side li .img-content img {
+    width: 70%
+}
 
 .section_2 .right-side li p {
     display: inline-block;
@@ -486,7 +489,9 @@ footer {
 /***************** Start Survey page *****************/
 .survey-main {
     background-image: url(../img/bg-full2_1.png);
-    background-position: top
+    background-position: 100% 25%;
+    background-color: #111;
+    position: relative
 }
 
 .inro-survey {
@@ -546,7 +551,7 @@ footer {
 .survey-main .text-top::before {
     position: absolute;
     content: "";
-    left: 280px;
+    left: 39%;
     background-image: url(../img/shape1.png);
     width: 105px;
     height: 370px;
@@ -568,19 +573,23 @@ footer {
     margin: 0 0 15px;
     border-top: 2px solid #d3cabb;
     margin-left: 15px;
+    display: inline-block
 }
 .first-row {
     width: 100%;
     padding-left: 15px
 }
 .first-row label {
-    width: 160px;
+/*    width: 160px;*/
     font-size: 16px;
     color: #fff;
     font-family: 'BKANT';
-    text-align: right;
+    padding-right: 10px
 }
-.first-row .form-control {
+.disease_field .form-control{
+   width: calc(100% - 87px) 
+}
+.first-row .area_field .form-control{
     width: calc(100% - 170px)
 }
 form .form-control {
@@ -626,7 +635,7 @@ form .form-control:focus {
     margin: 10px 0;
 }
 .label-bg {
-    background-color: #d3cabb;
+    background-color: rgba(211, 202 ,187 , .7);
     margin: 0;
     height: 40px;
     line-height: 30px;
@@ -741,6 +750,7 @@ form .form-control:focus {
     border: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
+    outline: none
     
 }
 .form-action {
@@ -790,6 +800,225 @@ form .form-control:focus {
     -ms-flex-align: end;
     align-items: flex-end;
 }
+.top-img {
+    margin-bottom: 5px
+}
+
+.image-aps {
+    position: absolute;
+    bottom: -70px;
+    right: 40px;
+    width: 130px;
+    z-index: 1;
+}
+.footer-page .row {
+    position: relative;
+    z-index: 2
+}
+
+.thanky-modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(60, 60, 60, .83);
+    z-index: 1024;
+    overflow: hidden;
+    display: none
+}
+
+.modal-content-thank h2 {
+    font-family: 'BKANT';
+    font-size: 46px;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+    width: 100%;
+}
+.modal-content-thank hr {
+    border: 0;
+    width: 88%;
+    background-image: -webkit-gradient(linear, left top, right top, from(#a17e3d), color-stop(#cebc86),color-stop(#896837),color-stop(#cfa368),to(#9b7a44));
+    background-image: linear-gradient(90deg, #a17e3d, #cebc86,#896837,#cfa368,#9b7a44);
+    height: 4px;
+    margin: 0;
+    margin-left: 40px;
+}
+
+.modal-content-thank p {
+    font-family: 'BKANT';
+    font-size: 27px;
+    color: #fff;
+    margin: 0;
+    width: 100%;
+}
+.modal-content-thank {
+    width: 800px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 24px;
+    border-radius: 15px;
+    margin: 1.75rem auto;
+    min-height: calc(100% - 3.5rem);
+}
+.modal-data {
+    background-color: #0f1219;
+    padding-left: 30%;
+    height: 400px;
+    height: 400px;
+    border-radius: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    width: 100%;
+    position: relative
+}
+img.shape3 {
+    position: absolute;
+    width: 150px;
+    left: 56px;
+    bottom: 0;
+}
+.circle-img {
+    position: absolute;
+    right: 85px;
+    top: 15%;
+}
+
+/************ Loading **************/
+.loading-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.reverse-spinner {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border: 6px solid transparent;
+    border-top-color: #d3cabb;
+    border-left-color: #d3cabb;
+    border-radius: 50%;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+
+.overlay-hidden {
+     display: none !important; 
+}
+
+.reverse-spinner::before {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    content: "";
+    border: 6px solid transparent;
+    border-top-color: #cebc86;
+    border-left-color: #cebc86;
+    border-radius: 50%;
+    -webkit-animation: spinBack 1s linear infinite;
+    animation: spinBack 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes spin {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@-webkit-keyframes spinBack {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(-720deg);
+        transform: rotate(-720deg)
+    }
+}
+
+@keyframes spinBack {
+    from {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(-720deg);
+        transform: rotate(-720deg)
+    }
+}
+.error-validate {
+    font-family: 'BKANT';
+    font-size: 14px;
+    color: #f80000;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding-top: 2px;
+}
+
+body.overview_hidden {
+    overflow: hidden;
+}
+.datepicker td, .datepicker th ,
+.datepicker .datepicker-switch {
+    font-size: 14px;
+}
+
 /*** Start Media Query ***/
 @media (min-width: 1367px) and (max-width: 1440px) {
     .text-side {
@@ -821,9 +1050,24 @@ form .form-control:focus {
         flex: 0 0 50%;
         max-width: 50%;
     }
+    /****** Survey *******/
+    .inro-survey {
+        padding: 90px 0 0;
+        -ms-flex: 0 0 60%;
+        -webkit-box-flex: 0;
+        flex: 0 0 60%;
+        max-width: 60%;
+        margin-left: 40%
+    }
+    .survey-main .text-top::before {
+        left: 290px
+    }
 }
 
 @media (min-width: 1281px) and (max-width: 1367px) {
+    .main-home {
+        background-image: url(../img/full-bg.png)
+    }
     .text-side {
         -ms-flex: 0 0 50%;
         -webkit-box-flex: 0;
@@ -867,9 +1111,24 @@ form .form-control:focus {
     .text-content h2 {
         font-size: 31px
     }
+    /****** Survey *******/
+    .inro-survey {
+        padding: 90px 0 0;
+        -ms-flex: 0 0 60%;
+        -webkit-box-flex: 0;
+        flex: 0 0 60%;
+        max-width: 60%;
+        margin-left: 40%
+    }
+    .survey-main .text-top::before {
+        left: 270px
+    }
 }
 
 @media (min-width: 1200px) and (max-width: 1280px) {
+    .main-home {
+        background-image: url(../img/full-bg.png)
+    }
     .text-side {
         -ms-flex: 0 0 60%;
         -webkit-box-flex: 0;
@@ -922,7 +1181,27 @@ form .form-control:focus {
     }
 
     .section_2 {
-        padding-top: 50px
+        padding-top: 20px;
+    }
+    /****** Survey *******/
+    .inro-survey {
+        padding: 50px 0 0;
+        -ms-flex: 0 0 60%;
+        -webkit-box-flex: 0;
+        flex: 0 0 60%;
+        max-width: 60%;
+        margin-left: 40%
+    }
+    .survey-main .text-top::before {
+        left: 252px
+    }
+    .survey-main {
+        background-position: 100% -20%;
+        background-color: #111;
+    }
+    .survey-main .text-content .text-right-content {
+        font-size: 18px;
+        width: 53%
     }
 }
 
@@ -977,6 +1256,25 @@ form .form-control:focus {
         -webkit-box-flex: 0;
         flex: 0 0 60%;
         max-width: 60%;
+    }
+    /****** Survey *******/
+    .survey-main .text-content {
+        margin-top: 0;
+    }
+    .form-content {
+        padding: 30% 40px 40px;
+    }
+    .survey-main {
+        background-position: top;
+    }
+    .inro-survey {
+        padding-top: 80px
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1440px) and (min-height: 900px) {
+    .main-home {
+        background-image: url(../img/full-bg1.png)
     }
 }
 
@@ -1038,6 +1336,42 @@ form .form-control:focus {
     .section_3 {
         padding: 100px 30px 40px
     }
+    /****** Survey *******/
+    .survey-main .text-content {
+        margin-top: 0;
+        padding: 50px 0 215px;
+    }
+    .form-content {
+        padding: 65px 40px 40px;
+    }
+    .survey-main {
+        background-position: top;
+    }
+    .inro-survey {
+        padding-top: 0
+    }
+    .survey-main .text-content .left-text strong {
+        font-size: 29px
+    }
+    .survey-main .text-content .left-text small {
+        font-size: 19px
+    }
+    .survey-main .text-content .text-right-content {
+        width: 53%;
+        font-size: 17px;
+        line-height: 19px;
+    }
+    .survey-main .text-top::before {
+        left: 233px
+    }
+    .form-content h1 {
+        font-size: 21px
+    }
+    .footer-page p {
+        font-size: 18px;
+        line-height: 21px;
+        width: 65%;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -1081,7 +1415,8 @@ form .form-control:focus {
 
     .text-bottom-center p,
     .text-content p {
-        font-size: 19px
+        font-size: 19px;
+        line-height: 22px;
     }
 
     .section_3 .bg-text1 h2,
@@ -1131,6 +1466,89 @@ form .form-control:focus {
         width: 416px;
         top: -35px;
     }
+    /****** Survey *******/
+    .inro-survey {
+        padding: 90px 0 0;
+        -ms-flex: 0 0 70%;
+        -webkit-box-flex: 0;
+        flex: 0 0 70%;
+        max-width: 70%;
+        margin-left: 30%;
+        padding: 0
+    }
+    .survey-main .text-content {
+        margin-top: 0;
+        padding: 50px 0 215px;
+    }
+    .form-content {
+        padding: 65px 40px 40px;
+    }
+    .survey-main {
+        background-position: top;
+    }
+    
+    .survey-main .text-content .left-text strong {
+        font-size: 26px;
+        padding-bottom: 2px;
+    }
+    .survey-main .text-content .left-text small {
+        font-size: 17px;
+    }
+    .survey-main .text-content .text-right-content {
+        width: 53%;
+        font-size: 17px;
+        line-height: 19px;
+    }
+    .survey-main .text-top::before {
+        left: 186px;
+    }
+    .form-content h1 {
+        font-size: 19px
+    }
+    .footer-page p {
+        font-size: 18px;
+        line-height: 21px;
+        width: 65%;
+    }
+    .first-row label {
+        font-size: 14px;
+    }
+    .first-row .area_field .form-control {
+        width: calc(100% - 140px);
+    }
+    .disease_field .form-control {
+        width: calc(100% - 77px);
+    }
+
+    .label-bg .col-4 {
+        font-size: 14px
+    }
+    .sec-row h2 {
+        font-size: 18px
+    }
+    .image-aps {
+        bottom: -70px;
+        right: 82px;
+        width: 95px;
+    }
+    .modal-content-thank {
+        width: 700px
+    }
+    .modal-data {
+        height: 300px
+    }
+    img.shape3 {
+        width: 105px;
+        left: 45px;
+    }
+    .modal-content-thank h2 {
+        font-size: 42px
+    }
+    .modal-content-thank p {
+        font-size: 24px
+    }
+
+
 
 }
 
@@ -1187,16 +1605,21 @@ form .form-control:focus {
     .text-bottom-center h2,
     .section_2 .left-side h2,
     .text-content h2 {
-        font-size: 24px
+        font-size: 24px;
+        line-height: 26px;
+    }
+    .text-content h2 small {
+        top: -1px;
+        font-size: 20px;
     }
 
     .text-content h3 {
-        font-size: 16px
+        font-size: 15px;
     }
 
     .text-content p {
-        font-size: 18px;
-        line-height: 18px;
+        font-size: 17px;
+        line-height: 21px;
     }
 
     .bg-text::after {
@@ -1211,8 +1634,8 @@ form .form-control:focus {
     .section_3 .bg-text1 h3,
     .text-bottom-center p,
     .section_2 .left-side h3 {
-        font-size: 17px;
-        line-height: 17px
+        font-size: 16px;
+        line-height: 20px;
     }
 
     .section_2 .right-side::before {
@@ -1234,7 +1657,7 @@ form .form-control:focus {
 
     .section_2 .right-side li p {
         font-size: 14px;
-        line-height: 17px;
+        line-height: 18px;
     }
 
     .text-bottom-center h5 {
@@ -1265,6 +1688,120 @@ form .form-control:focus {
         top: -38%;
         left: 7%;
     }
+    /****** Survey *****/
+    .survey-main .header-top .col-6 img{
+        width: 60%
+    }
+    .survey-main .text-content {
+        margin: 0;
+    }
+    .inro-survey {
+        padding-top: 55px;
+    }
+    .survey-main .text-top {
+        padding-top: 0;
+    }
+    .survey-main .text-content .left-text {
+        width: 100%;
+        padding-right: 15px;
+        padding-top: 0;
+    }
+    .survey-main .text-content .left-text strong {
+        font-size: 29px;
+        padding-bottom: 7px;
+    }
+    .survey-main .text-content .left-text small {
+        font-size: 18px;
+        line-height: 17px;
+    }
+    .survey-main .text-content .text-right-content {
+        width: 100%;
+        font-size: 17px;
+        padding-left: 15px;
+        padding-top: 30px;
+}
+    .survey-main .text-content .text-right-content::after {
+    top: 21px;
+    left: 12px;
+}
+    .survey-main .text-top::before {
+        display: none
+    }
+    .form-content {
+        padding: 25px 15px 0;
+    }
+    .first-row .form-control,
+    .email-row .form-control,
+    .last-input-last .form-control,
+    .first-input-last .form-control,
+    .first-row .form-control {
+        width: 100%!important;
+    }
+    .first-row label {
+        font-size: 16px;
+    }
+    .form-content .fr-hr {
+        width: 90%;
+    }
+    .form-content h1 {
+        font-size: 19px
+    }
+    .sec-row .padding-l {
+        padding-left: 15px;
+    }
+    .sec-row h2 {
+        margin-top: 15px
+    }
+    .footer-page p {
+        font-size: 17px;
+        line-height: 22px;
+        width: 100%;
+    }
+    .last-p {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    .footer-page .col-6 img {
+        width: 80%
+    }
+    .image-aps {
+        width: 50px;
+    }
+    .label-bg {
+        display: none
+    }
+    label.sr-only {
+        display: block;
+        position: relative;
+        width: auto;
+        height: auto;
+        margin-bottom: .5rem;
+        font-family: 'BKANT';
+        font-size: 16px;
+    }
+    .modal-content-thank {
+        width: 100%
+    }
+    .modal-data {
+        height: 214px;
+        padding: 0 28px;
+    }
+    img.shape3 {
+    display: none
+}
+    .modal-content-thank h2 {
+        font-size: 30px
+    }
+    .modal-content-thank p {
+        font-size: 16px
+    }
+    .circle-img {
+    right: 35px;
+    top: 10%;
+    width: 47px;
+}
+
+
 
 }
 
@@ -1308,10 +1845,14 @@ form .form-control:focus {
         width: 85%;
         top: -36px;
     }
+    .sec-row .padding-l {
+        padding-left: 50px;
+    }
 
 }
 
 @media (max-device-width: 850px) and (orientation: landscape) {
+    .survey-main .header-top .col-6 img,
     .header-top .col-md-3 img {
         width: 35%
     }
@@ -1323,5 +1864,13 @@ form .form-control:focus {
     .secttion-parent {
         min-height: 100%;
         padding: 30px 35px;
+    }
+}
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
+    .text-side {
+        display: block;
+        padding-top: 10%
     }
 }

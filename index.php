@@ -1,6 +1,3 @@
-<?php
-require 'Router.php'
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,12 +13,7 @@ require 'Router.php'
 </head>
 
 <body>
-<div>
-    testttttttt
-</div>
-
-    <main>
-
+    <main class="main-home"> 
         <!-- Start Section One -->
         <section id="sectionOne" class="section_1 secttion-parent">
             <div class="header-top">
@@ -189,7 +181,7 @@ require 'Router.php'
                 </div>
             </div>
         </section>
-        <a href="#" class="btn-survey">Fill Survey</a>
+        <a href="survey.html" class="btn-survey">Fill Survey</a>
     </main>
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

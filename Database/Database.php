@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Includes\Database;
+namespace Database;
 
 
 class Database extends Connection
@@ -23,11 +23,12 @@ class Database extends Connection
 	/**
 	 * @param $table
 	 * @param array $params
+	 * @return false|\PDOStatement $result
 	 */
 	public function insert($table ,Array $params)
 	{
-		self::getInstance();
-
+		$db = self::getInstance();
+		die();
 		$attributes = "";
 		$holders = "";
 		$values = "";
@@ -39,33 +40,42 @@ class Database extends Connection
 		}
 		$sql = "insert into $table ($attributes) values ($values)";
 
-		if(self::$conn->query($sql))
-		{
-			self::close_Connection();
-		}
+		$result = $db->executeQuery($sql);
+		return $result;
 	}
 
     /**
      * @param $table
      * @param array $params
      * @param array $conditions
+	 * @return false|\PDOStatement $result
      */
-    public function select($table, Array $params=[], Array $conditions =[])
+    public static function select($table, Array $params=[], Array $conditions =[])
 	{
+		$db = self::getInstance();
+
 	    $params = ! empty($params) ? implode(",",$params) : "*";
 
 	    $filters = "";
         foreach ($conditions as $key => $value)
-        {
-           $filters .= "$key = $value";
+        {!empty($filters) ? $filters.= " and " : null;
+           $filters .= " $key = $value";
         }
 	    $sql = "select $params from $table";
 
         if (! empty($filters))
         {
+			$sql .= " where ";
             $sql .= $filters ;
         }
-        $sql
+        $result = $db->executeQuery($sql);
+
+
+        $data = [];
+		while ($row = $result->fetch(\PDO::FETCH_ASSOC)) {
+			$data[] = $row;
+		}
+        return $data ;
 
 	}
 

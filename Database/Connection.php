@@ -1,7 +1,7 @@
 <?php
-namespace Includes\Database;
-use mysqli;
-require_once '../Config/Database.php';
+namespace Database;
+
+require_once $_SERVER['DOCUMENT_ROOT']."/Config/Database.php";
 
 class Connection
 {
@@ -11,7 +11,9 @@ class Connection
 
 	protected function __construct()
     {
+
         self::$conn = new \PDO(sprintf('mysql:host=%s;dbname=%s',DB_HOST,DB_DATABASE),DB_USERNAME ,DB_PASSWORD  );
+//		var_dump(self::$conn);
 //        $this->checkConnection();
     }
 //    private function checkConnection()
@@ -56,7 +58,13 @@ class Connection
 //        }
 //    }
 
+	public static function executeQuery($query)
+	{
 
+		$result = self::$conn->query($query);
+//		self::close_Connection();
+		return $result;
+	}
 
     public static function close_Connection()
     {
