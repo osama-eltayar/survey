@@ -25,22 +25,23 @@ class Database extends Connection
 	 * @param array $params
 	 * @return false|\PDOStatement $result
 	 */
-	public function insert($table ,Array $params)
+	public static function insert($table ,Array $params)
 	{
 		$db = self::getInstance();
-		die();
 		$attributes = "";
 		$holders = "";
 		$values = "";
 		foreach ($params as $key => $value)
 		{
-			$attributes .= $key."," ;
+			!empty($attributes) ? $attributes.= " , " : null;
+			!empty($values) ? $values.= " , " : null;
+			$attributes .= $key ;
 			$holders .= "?," ;
-			$values .= $value."," ;
+			$values .= "'".$value."'" ;
 		}
 		$sql = "insert into $table ($attributes) values ($values)";
-
-		$result = $db->executeQuery($sql);
+		$result = $db->executeData($sql);
+		Connection::close_Connection();
 		return $result;
 	}
 
@@ -48,7 +49,7 @@ class Database extends Connection
      * @param $table
      * @param array $params
      * @param array $conditions
-	 * @return false|\PDOStatement $result
+	 * @return array
      */
     public static function select($table, Array $params=[], Array $conditions =[])
 	{
@@ -75,6 +76,7 @@ class Database extends Connection
 		while ($row = $result->fetch(\PDO::FETCH_ASSOC)) {
 			$data[] = $row;
 		}
+		Connection::close_Connection();
         return $data ;
 
 	}

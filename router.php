@@ -4,10 +4,16 @@ require_once 'bootstrap.php';
 $fullUrl = parse_url( $_SERVER['REQUEST_URI'] );
 $url = str_replace("router/","",$fullUrl['path']) ;
 $method = $_SERVER['REQUEST_METHOD'];
-
-if ($method == "Post")
+if ($method == "POST")
 {
+	$params = $_POST ;
+	switch ($url)
+	{
+		case "/user-topics":
+			(new \Models\Topic())->store($params);
+			break;
 
+	}
 }
 
 elseif ($method == "GET")

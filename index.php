@@ -1,3 +1,6 @@
+<?php
+require 'bootstrap.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -181,7 +184,7 @@
                 </div>
             </div>
         </section>
-        <a href="survey.html" class="btn-survey">Fill Survey</a>
+        <a href="http://localhost/survey.php" class="btn-survey">Fill Survey</a>
     </main>
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

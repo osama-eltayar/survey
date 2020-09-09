@@ -2,7 +2,8 @@ $("#datepicker,#datepicker1,#datepicker2").datepicker({
     autoclose: true,
     todayHighlight: true,
     useCurrent: false,
-    //            format: "DD/MM/YYYY",
+    // format: "dd-mm-yyyy",
+    format: "yyyy-mm-dd",
     showTodayButton: true,
 });
 
@@ -23,11 +24,12 @@ function validateName(evt) {
         var key = theEvent.keyCode || theEvent.which;
         key = String.fromCharCode(key);
     }
-    var regex = /[a-zA-Z ]|\./;
-    if (!regex.test(key)) {
-        theEvent.returnValue = false;
-        if (theEvent.preventDefault) theEvent.preventDefault();
-    }
+    // var x = '^[a-zA-z]+[a-zA-z ]*$'
+    // var regex = /^[a-zA-z]+[a-zA-z ]*$/gm;
+    // if (!regex.test(key)) {
+    //     theEvent.returnValue = false;
+    //     if (theEvent.preventDefault) theEvent.preventDefault();
+    // }
 }
 
 
@@ -144,11 +146,13 @@ function submit_survey() {
         $('#name').closest('.form-group').append('<span class="error-validate">The Name must be at least 2 characters.</span>');
         valid = false;
         console.log('not valid fname 2');
-    } else if (!validateName(name)) {
-        $('#name').closest('.form-group').append('<span class="error-validate">The Name format is invalid.</span>');
-        valid = false;
-        console.log('not valid name 3');
-    } else if (phone == null || phone == "") {
+    }
+    // else if (!validateName(name)) {
+    //     $('#name').closest('.form-group').append('<span class="error-validate">The Name format is invalid.</span>');
+    //     valid = false;
+    //     console.log('not valid name 3');
+    // }
+    else if (phone == null || phone == "") {
         $('#phone').closest('.form-group').append('<span class="error-validate">The phone field is required.</span>');
         valid = false;
         console.log('not valid phone ');
@@ -182,6 +186,7 @@ function submit_survey() {
 
     if (valid) {
         $("body").addClass("overview_hidden");
+        userTopics();
         $(".thanky-modal").show();
 
     } else {

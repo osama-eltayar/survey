@@ -117,7 +117,6 @@ require 'bootstrap.php'
                                         <label for="topic1" class="sr-only">Topic:</label>
                                         <select class="form-control" id="topic1">
                                             <option value="0" selected>Topic</option>
-                                            <option value="1" >option</option>
                                         </select>
                                     </div>
                                 </div>
@@ -164,7 +163,6 @@ require 'bootstrap.php'
                                         <label for="topic2" class="sr-only">Topic:</label>
                                         <select class="form-control " id="topic2">
                                             <option value="0" selected>Topic</option>
-                                            <option value="1" >option</option>
                                         </select>
                                     </div>
                                 </div>
@@ -269,11 +267,11 @@ require 'bootstrap.php'
                                 <div class="radio-check">
                                     <span>Contact me via</span>
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="customRadio1" name="example1" value="customEx" checked>
+                                        <input type="radio" class="custom-control-input" id="customRadio1" name="example1" value="email" checked>
                                         <label class="custom-control-label" for="customRadio1">Email</label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="customRadio2" name="example1" value="customEx">
+                                        <input type="radio" class="custom-control-input" id="customRadio2" name="example1" value="phone">
                                         <label class="custom-control-label" for="customRadio2">Phone</label>
                                     </div>
                                 </div>
@@ -434,6 +432,7 @@ require 'bootstrap.php'
 
         function getTobics(audi,tobicList)
         {
+
             route = "<?php echo myUrl('router/topics') ?>"
              $.ajax({
                 type: "GET",
@@ -449,19 +448,52 @@ require 'bootstrap.php'
                     $("#"+tobicList).empty();
                     $("#"+tobicList).append(` <option value="0" selected>Topic</option>`)
                     response = JSON.parse(response);
-                    response.data.forEach(appendTobic);
+                    // response.data.forEach(appendTobic.bind(tobicList));
+                    response.data.forEach(function (data,index) {
+                        $("#"+tobicList).append(` <option value=${data.topic_id} >${data.topic_name}</option>`)
+                    })
                 })
                 .fail(function (error) {
                 })
         }
 
-
-
-        function appendTobic(data,tobicList="topic1")
+        function userTopics()
         {
-            $("#"+tobicList).append(` <option value=${data.topic_id} >${data.topic_name}</option>`)
+            values={
+                'topics' : {},
+                'user' : {}
+            };
+            values.topics.topic1_id = $('#topic1').val() ;
+            values.topics.topic2_id = $('#topic2 ').val() ;
+            values.topics.topic3 = $('#topic3').val() ;
+            values.topics.topic1_date = $('#datepicker').val() ;
+            values.topics.topic2_date = $('#datepicker1').val() ;
+            values.topics.topic3_date = $('#datepicker2').val() ;
+            values.topics.comment = $('#text').val() ;
+            values.user.user_name = $('#name').val() ;
+            values.user.phone = $('#phone').val() ;
+            values.user.email = $('#email').val() ;
+            values.user.contact = $("input[name='example1']:checked").val();
 
+            console.log(values);
+
+            sendToServer(values);
         }
+
+        function sendToServer(values)
+        {
+            route = "<?php echo myUrl('router/user-topics') ?>"
+            $.ajax({
+                type: "Post",
+                url: route,
+                data : values
+            })
+            .done(function (response) {
+            console.log(response);
+        })
+        }
+
+
 
     </script>
 </body>

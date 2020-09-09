@@ -25,4 +25,14 @@ class Topic
 
 		echo(json_encode($response));
 	}
+
+	public function store($params)
+	{
+//		var_dump($params);
+		$userId = Database::insert('users',$params['user']);
+		$params['topics']['user_id'] = $userId ;
+		Database::insert('user_topics',$params['topics']);
+		var_dump("done");
+
+	}
 }
